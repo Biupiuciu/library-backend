@@ -7,6 +7,20 @@ class BookService {
   ): void {
     BookModel.getAllBooks(callback);
   }
+
+  static getBookById(
+    id: number,
+    callback: (err: Error | null, book: Book | undefined) => void
+  ): void {
+    BookModel.getBookById(id, callback);
+  }
+
+  static addBook(
+    book: Book,
+    callback: (err: Error | null, bookId: number) => void
+  ): void {
+    BookModel.addBook(book, callback);
+  }
 }
 
 export default BookService;
