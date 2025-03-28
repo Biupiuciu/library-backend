@@ -21,6 +21,21 @@ class BookService {
   ): void {
     BookModel.addBook(book, callback);
   }
+
+  static updateBook(
+    id: number,
+    updateBook: Book,
+    callback: (err: Error | null, changes: number) => void
+  ): void {
+    BookModel.updateBook(id, updateBook, callback);
+  }
+
+  static deleteBook(
+    id: number,
+    callback: (err: Error | null, changes: number) => void
+  ): void {
+    BookModel.deleteBook(id, callback);
+  }
 }
 
 export default BookService;

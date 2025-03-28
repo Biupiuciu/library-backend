@@ -39,9 +39,37 @@ class BookModel {
       query,
       [book.title, book.author, book.year, book.available],
       function (err) {
-        callback(err, this.lastID);
+        callback(err, this.lastID); //created book's id
       }
     );
+  }
+
+  //update one book
+  static updateBook(
+    id: number,
+    book: Book,
+    callback: (err: Error | null, updateID: number) => void
+  ): void {
+    const query =
+      "UPDATE books SET title = ?, author = ?, year = ?, available = ? WHERE id = ?";
+    db.run(
+      query,
+      [book.title, book.author, book.year, book.available, id],
+      function (err) {
+        callback(err, this.changes); //number of rows affected
+      }
+    );
+  }
+
+  //delete one book
+  static deleteBook(
+    id: number,
+    callback: (err: Error | null, changes: number) => void
+  ): void {
+    const query = "DELETE FROM books WHERE id = ?";
+    db.run(query, [id], function (err) {
+      callback(err, this.changes); //number of rows affected
+    });
   }
 }
 
