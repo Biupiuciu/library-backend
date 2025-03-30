@@ -36,7 +36,7 @@ npm install
 To run the application, use the following command in the root directory of the project:
 
 ```
-npx tsx src/app.ts
+npx tsx app.ts
 ```
 
 This will start the server, which will listen at http://localhost:3000 (or the port you have configured).
