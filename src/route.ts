@@ -1,5 +1,5 @@
 import { Router } from "express";
-import bookRouter from "./src/routes/bookRoutes";
+import bookRouter from "./routes/bookRoutes";
 
 const router = Router();
 
