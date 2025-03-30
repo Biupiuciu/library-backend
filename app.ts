@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import bookRoutes from "./routes/bookRoutes";
+import router from "./route";
 import dotenv from "dotenv";
 
 //Load environment variables
@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000; // If no environment variable is set, use
 app.use(bodyParser.json()); //for parsing JSON requests
 
 // Routes
-app.use(bookRoutes);
+app.use(router);
 
 // Start the server
 app.listen(port, () => {
