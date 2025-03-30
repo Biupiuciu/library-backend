@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import BookService from "./bookService";
+import BookService from "../services/bookService";
 import { HttpStatus } from "../utils/httpStatus";
 import { validateBookInput } from "../utils/validateBookInput";
 
@@ -81,10 +81,9 @@ class BookController {
   //add one book
   static async addBook(req: Request, res: Response): Promise<void> {
     const { title, author, year, available } = req.body;
-    const newBook = { title, author, year, available };
 
     //if newBook is valid
-    const isValidateInput = validateBookInput(newBook);
+    const isValidateInput = validateBookInput(title, author, year, available);
     if (!isValidateInput) {
       // not valid
       res.status(HttpStatus.BAD_REQUEST).json({
@@ -93,6 +92,8 @@ class BookController {
       });
       return;
     }
+
+    const newBook = { title, author, year, available };
     try {
       const result = await BookService.addBook(newBook);
       if (result == 1) {
@@ -115,7 +116,6 @@ class BookController {
   static async updateBook(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     const { title, author, year, available } = req.body;
-    const updatedBook = { title, author, year, available };
 
     //if id is a valid number
     const bookId = BookController.validateBookId(id);
@@ -130,7 +130,7 @@ class BookController {
     }
 
     //if newBook is valid
-    const isValidateInput = validateBookInput(updatedBook);
+    const isValidateInput = validateBookInput(title, author, year, available);
     if (!isValidateInput) {
       // not valid
       res.status(HttpStatus.BAD_REQUEST).json({
@@ -139,6 +139,8 @@ class BookController {
       });
       return;
     }
+
+    const updatedBook = { title, author, year, available };
 
     try {
       const result = await BookService.updateBook(bookId, updatedBook);

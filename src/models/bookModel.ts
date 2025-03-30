@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import db from "./initDatabase";
+import db from "../utils/initDatabase";
 
 export interface Book {
   id?: number;

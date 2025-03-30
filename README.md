@@ -4,7 +4,19 @@
 
 This project is a Express app built with TypeScript for handling common CRUD operations regarding books resource. It provides API endpoints for managing books, including creating, reading, updating, and deleting book records.
 
+## Tech stacks
+
+- Node.js with Express
+
+- TypeScript for type safety
+
+- SQLite as the database
+
 ## Installation
+
+### Prerequisites
+
+Ensure you have Node.js installed.
 
 First, clone this repository to your local machine and navigate to the project directory:
 
@@ -24,7 +36,7 @@ npm install
 To run the application, use the following command in the root directory of the project:
 
 ```
-npx tsx app.ts
+npx tsx src/app.ts
 ```
 
 This will start the server, which will listen at http://localhost:3000 (or the port you have configured).
@@ -50,3 +62,7 @@ Here are the available API endpoints:
 - PUT /api/books/:id – Update an existing book by Id
 
 - DELETE /api/books/:id – Delete a book by Id
+
+## Testing with Postman
+
+A Postman Collection is provided in the repository (Library.postman_collection.json).

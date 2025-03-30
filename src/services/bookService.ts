@@ -1,5 +1,5 @@
-import { Book } from "../books/bookModel";
-import BookModel from "../books/bookModel";
+import { Book } from "../models/bookModel";
+import BookModel from "../models/bookModel";
 
 class BookService {
   static getAllBooks(): Promise<Book[] | null> {
