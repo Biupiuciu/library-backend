@@ -6,30 +6,17 @@ export function validateBookInput(
 ) {
   //validate title
 
-  console.log(title, author, year, available);
-
-  if (!title || typeof title !== "string") {
-    console.log("1");
-    return false;
-  }
+  if (!title || typeof title !== "string") return false;
 
   //validate author
-  if (!author || typeof author !== "string") {
-    console.log("2");
-    return false;
-  }
+  if (!author || typeof author !== "string") return false;
 
   //validate year
   const currentYear = new Date().getFullYear();
-  if (!year || !Number.isInteger(year) || year < 1000 || year > currentYear) {
-    console.log("3");
+  if (!year || !Number.isInteger(year) || year < 1000 || year > currentYear)
     return false;
-  }
   //validate available
-  if (available == null || typeof available !== "boolean") {
-    console.log("4");
-    return false;
-  }
+  if (available == null || typeof available !== "boolean") return false;
 
   return true;
 }
